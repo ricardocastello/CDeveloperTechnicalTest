@@ -1,0 +1,17 @@
+<Root>
+  <Entity>
+    <name>Dave</name>
+    <address_line1>Street</address_line1>
+    <address_line2>Town</address_line2>
+  </Entity>
+  <Entity>
+    <name>Dave2</name>
+    <address_line1>Street2</address_line1>
+    <address_line2>Town2</address_line2>
+  </Entity>
+  <Entity>
+    <name>Dave3</name>
+    <address_line1>Street3</address_line1>
+    <address_line2>Town3</address_line2>
+  </Entity>
+</Root>

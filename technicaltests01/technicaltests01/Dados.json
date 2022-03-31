@@ -1,0 +1,24 @@
+[
+  {
+    "name": "Dave",
+    "address_line1": "Street",
+    "address_line2": "Town"
+  },
+  {
+    "name": "Dave2",
+    "address": {
+      "line1": "Street2",
+      "line2": "Town2"
+    }
+  },
+  {
+    "name": "Dave3",
+    "address_line1": "Street3",
+    "address_line2": "Town3"
+  },
+  {
+    "name": "Ricardo",
+    "address_line1": "Rua",
+    "address_line2": "Principal"
+  }
+]

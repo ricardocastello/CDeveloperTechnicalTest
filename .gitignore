@@ -348,3 +348,8 @@ MigrationBackup/
 
 # Ionide (cross platform F# VS Code tools) working folder
 .ionide/
+/technicaltests01/teste05.xml
+/technicaltests01/teste04.xml
+/technicaltests01/teste03.xml
+/technicaltests01/teste02.xml
+/technicaltests01/teste01.xml

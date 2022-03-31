@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "technicaltests01": {
+      "commandName": "Project",
+      "commandLineArgs": "\"C:\\Temp\\TechnicalTest\\technicaltests01\\technicaltests01\\Dados.csv\" JSON"
+    }
+  }
+}
