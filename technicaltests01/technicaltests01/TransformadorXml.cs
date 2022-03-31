@@ -35,7 +35,6 @@
 
                 xmlResult += "<Entity>" + xml + "</Entity>";
 
-
             }
             return "<Root>" + xmlResult + "</Root>";
         }
