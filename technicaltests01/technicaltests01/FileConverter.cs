@@ -2,9 +2,9 @@
 {
     public class FileConverter
     {
-        public string Converter(Arquivo arquivo, ITransformador transformador)
+        public string Convert(File file, ITransformer transform)
         {
-           return transformador.Converter(arquivo);
+           return transform.Convert(file);
         }
     }
 }

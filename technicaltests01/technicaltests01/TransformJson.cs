@@ -2,36 +2,36 @@
 
 namespace technicaltests01
 {
-    public class TransformadorJson : ITransformador
+    public class TransformJson : ITransformer
     {
-        public string Converter(Arquivo arquivo)
+        public string Convert(File file)
         {
             var jsonResult = "";
-            foreach (var linha in arquivo.Data)
+            foreach (var linha in file.Data)
             {
                 var json = "";
                 int i = 0;
-                while (i < arquivo.Header.Count)
+                while (i < file.Header.Count)
                 {
-                    var coluna = arquivo.Header[i];
-                    var agrupamento = arquivo.ObterAgrupamento(coluna);
-                    if (agrupamento == null)
+                    var column = file.Header[i];
+                    var groupText = file.GetGroup(column);
+                    if (groupText == null)
                     {
                         var valor = linha.Columns[i];
-                        json += $@",""{coluna}"" : ""{valor}""";
+                        json += $@",""{column}"" : ""{valor}""";
                         i++;
                     }
                     else
                     {
                         var json1 = "";
                         //json1 += $@",""{agrupamento.Prefix}"" : ";
-                        foreach (var sufixo in agrupamento.Sufix)
+                        foreach (var sufix in groupText.Sufix)
                         {
                             var valor = linha.Columns[i];
-                            json1 += $@",""{sufixo}"" : ""{valor}""";
+                            json1 += $@",""{sufix}"" : ""{valor}""";
                             i++;
                         }
-                        json += $@",""{agrupamento.Prefix}"" : " + "{" + json1.Substring(1) + "}";
+                        json += $@",""{groupText.Prefix}"" : " + "{" + json1.Substring(1) + "}";
                     }
                 }
                 jsonResult += ",{" + json.Substring(1) + "}";

@@ -8,23 +8,23 @@ namespace technicaltests01
     {
         private const string separator = ";";
 
-        public Arquivo TransformarCSV(FileInfo fileInfo)
+        public File TransformCSV(FileInfo fileInfo)
         {
-            var arquivo = new Arquivo();
+            var file = new File();
 
-            var linhasAquivo = File.ReadAllLines(fileInfo.FullName);
+            var linhasAquivo = System.IO.File.ReadAllLines(fileInfo.FullName);
 
             var header = linhasAquivo.FirstOrDefault();
-            arquivo.AdicionarCabecalho(header.Split(separator));
+            file.InsertHeader(header.Split(separator));
 
-            foreach (var linhaArquivo in linhasAquivo.Skip(1))
+            foreach (var lineFile in linhasAquivo.Skip(1))
             {
-                var linha = new Row();
-                linha.AdicionarColunas(linhaArquivo.Split(separator));
-                arquivo.Data.Add(linha);
+                var line = new Row();
+                line.AddColumns(lineFile.Split(separator));
+                file.Data.Add(line);
             }
 
-            return arquivo;
+            return file;
         }
     }
 }

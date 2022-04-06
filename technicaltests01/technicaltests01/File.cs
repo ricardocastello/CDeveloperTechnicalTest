@@ -4,27 +4,27 @@ using System.Linq;
 
 namespace technicaltests01
 {
-    public class Arquivo
+    public class File
     {
         private const string separator = "_";
-        public Agrupamento[] Agrupamento { get; private set; }
+        public Group[] XMLGroup { get; private set; }
         public List<String> Header { get; } = new List<String>();
         public List<Row> Data { get; } = new List<Row>();
 
-        public void AdicionarCabecalho(IEnumerable<string> header)
+        public void InsertHeader(IEnumerable<string> header)
         {
             Header.AddRange(header);
 
-            Agrupamento = header.GroupBy(h => h.Prefix(separator))
+            XMLGroup = header.GroupBy(h => h.Prefix(separator))
                 .Where(g => g.Count() > 1)
-                .Select(g => new Agrupamento { Prefix = g.Key, Sufix = g.Select(i => i.Sufix(separator)).ToArray() })
+                .Select(g => new Group { Prefix = g.Key, Sufix = g.Select(i => i.Sufix(separator)).ToArray() })
                 .ToArray();
         }
 
-        public Agrupamento ObterAgrupamento(string coluna)
+        public Group GetGroup(string coluna)
         {
             var prefix = coluna.Prefix(separator);
-            return Agrupamento.FirstOrDefault(a => a.Prefix == prefix);
+            return XMLGroup.FirstOrDefault(a => a.Prefix == prefix);
         }
     }
 }

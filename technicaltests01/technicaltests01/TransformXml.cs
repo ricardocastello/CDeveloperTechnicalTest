@@ -1,8 +1,8 @@
 ﻿namespace technicaltests01
 {
-    public class TransformadorXml : ITransformador
+    public class TransformXml : ITransformer
     {
-        public string Converter(Arquivo arquivo)
+        public string Convert(File arquivo)
         {
             var xmlResult = "";
 
@@ -13,7 +13,7 @@
                 while (i < arquivo.Header.Count)
                 {
                     var coluna = arquivo.Header[i];
-                    var agrupamento = arquivo.ObterAgrupamento(coluna);
+                    var agrupamento = arquivo.GetGroup(coluna);
                     if (agrupamento == null)
                     {
                         var valor = linha.Columns[i];
@@ -23,10 +23,10 @@
                     else
                     {
                         var xml1 = "";
-                        foreach (var sufixo in agrupamento.Sufix)
+                        foreach (var sufix in agrupamento.Sufix)
                         {
                             var valor = linha.Columns[i];
-                            xml1 += $@"<{sufixo}>{valor}</{sufixo}>";
+                            xml1 += $@"<{sufix}>{valor}</{sufix}>";
                             i++;
                         }
                         xml += $@"<{agrupamento.Prefix}>{xml1}</{agrupamento.Prefix}>";

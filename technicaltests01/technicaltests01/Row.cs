@@ -7,7 +7,7 @@ namespace technicaltests01
     {
         public List<object> Columns { get; } = new List<object>();
 
-        public void AdicionarColunas(string[] valores)
+        public void AddColumns(string[] valores)
         {
             Columns.AddRange(valores);
         }
